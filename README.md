@@ -1,7 +1,7 @@
 # Master Backup Strategy
 By: Daniel Rosehill (github@danielrosehill.co.il)
 
-(This documentation is a work in progress. The backup approach described here is the one I use as of 01/05/20)
+*Version control:* V1.2 (Updated: 01/05/20)
 
 This "master" backup strategy summarizes the overall backup strategy that I currently use to back up my local and cloud data in compliance with the 3-2-1 backup approach:
 
