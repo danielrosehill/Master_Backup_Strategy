@@ -1,4 +1,4 @@
-# Master Backup Strategy
+# Master Backup Strategy (V1.2)
 By: Daniel Rosehill (github@danielrosehill.co.il)
 
 *Version control:* V1.2 (Updated: 01/05/20)
