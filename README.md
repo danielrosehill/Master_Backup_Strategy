@@ -1,9 +1,13 @@
 # Master Backup Strategy
 By: Daniel Rosehill (github@danielrosehill.co.il)
 
+(This documentation is a work in progress. The backup approach described here is the one I use as of 01/05/20)
+
 This "master" backup strategy summarizes the overall backup strategy that I currently use to back up my local and cloud data in compliance with the 3-2-1 backup approach:
 
 ## Objective: 3-2-1 Compliant Backups 
+
+![321Backups](/images/321graphic.png)
 
 * 3 extant copies of all critical data
 * 2 backup copies
@@ -47,3 +51,76 @@ I run Clonezilla as often as I remember. Approximately once every 3 months. I ha
 ## Notes:
 
 - Because full system backups capture all virtual machines (VMs) nested within the home directory (if you're using VMWare Workstation player at /home/$user/vmware) there is no need to create separate backups for VMs — although for convenience's sake (to be able to restore a VM without having to restore the overlying system), I take periodic backups of my Windows VM too.
+- Because Clonezilla backup images of a whole disk are heavy, I have only ever uploaded backed up to S3 once. In the event of a disk failure and replacement, restoring from local media would make much more sense. 
+- This is obviosly desktop-centric. A concerned traveller could bring an external SSD with him/her while travelling with a Clonezilla image of the SSD in order to replace it. 
+
+<hr>
+
+# 2: Cloud Backups: Major 
+
+I divide my cloud backup approach into two parts:
+
+* Major cloud buckets
+* Minor cloud buckets and SaaS services
+
+The major cloud buckets are so-called because they are heavy and contain a lot of data. For me, these are:
+
+* Cpanels
+* Gsuite
+* Primary cloud storage device
+
+And these are handled as follows:
+
+## Google Drive (not: Gsuite) + cloud storage --> S3: Via Multcloud (Ongoing, Automated)
+
+![Multcloud](/images/multcloud.png)
+
+I use [Multcloud](https://www.multcloud.com) to automatically sync GDrive and main cloud storage to S3 once a week. 
+
+Because the likelihood of any major cloud provider losing one's data is infintessimally small, I would feel comfortable running these backup syncs less regularly than that. 
+
+## Cpanels (Every 3 months, Manual)
+
+![Hosting](/images/hostingbackup.png)
+
+Every 3 months I manually backup and upload to S3 the websites that I manage.
+
+There's not much more to do than running a full account backup and then uploading and overwriting those files to S3. I haven't managed to get cloud-to-cloud running for these. 
+
+## GSuite (Every 3 months, Manual)
+
+Every 3 months I run a Gsuite Takeout.
+
+Becaues I'm already capturing Google Drive I don't include that in the archive.
+
+I put this up to S3 and keep a copy on a local hard drive too. 
+
+# 3: Cloud Backups: Minor
+
+![LI](/images/li.png)
+
+In [this Github repository](https://github.com/danielrosehilljlm/CloudBackupApproaches) I have documented backing up what I call "minor" cloud services and provided instructions for all the providers that I am familiar with — although there are many, many, more. 
+
+Every 3 to 6 months I will manually run through this checklist and upload the backups to S3.
+
+# 4: Pull S3 --> Local (Manual, Every 6 Months)
+
+In order to keep a second copy of the cloud media that is onsite (S3 is clearly another cloud) about once every six months I then pull down my S3 buckets and copy them locally.
+
+Specifically I want to download:
+
+* My hosting backups
+* The minor cloud service backups
+* The GDrive and Cloud storage backups
+
+I usually save the Gsuite backup not including Gdrive directly onto the local 
+
+# 5: Contact Information
+
+I have certainly invested quite a bit of time in devising this strategy. I am sure that it could be approved upon. However, for the moment it works:
+
+* Since instituting my local backups I have had a stable Linux system for about two years. No more upgrades bricking the system. In fact, Timeshift has all that's been required when an update has corrupted my system.
+* I feel much, much more confident putting everything I do on the cloud once I know I have a system for getting a copy. There are things that some people are worried about when using cloud computing that don't worry me. And conversely, I feel a strong need to retain a copy I can control and access of all my cloud data in one place. Others trust their providers' own backup strategies and do not feel the need. We can agree to respect one another's preferences I hope!
+* If you would like to get in touch to suggest any improvements please email github at danielrosehill dot co dot il. Thank you for checking out this respository!
+
+
