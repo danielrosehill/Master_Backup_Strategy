@@ -101,6 +101,9 @@ I put this up to S3 and keep a copy on a local hard drive too.
 
 # 3: Cloud Backups: Minor
 
+![MajorCloud](/images/minorclouds.png)
+
+
 ![LI](/images/li.png)
 
 In [this Github repository](https://github.com/danielrosehilljlm/CloudBackupApproaches) I have documented backing up what I call "minor" cloud services and provided instructions for all the providers that I am familiar with — although there are many, many, more. 
