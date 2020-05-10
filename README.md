@@ -18,6 +18,8 @@ This "master" backup strategy summarizes the overall backup strategy that I curr
 
 # 1: Local Backups
 
+![Desktop](/images/desktop_backups.png)
+
 I summarized my approach for backing up my local (Linux) desktop [on LinuxHint.com](https://linuxhint.com/ubuntu_backups_321/).
 
 The components are as follows:
