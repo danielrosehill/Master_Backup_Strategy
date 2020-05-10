@@ -7,7 +7,9 @@ This "master" backup strategy summarizes the overall backup strategy that I curr
 
 ## Objective: 3-2-1 Compliant Backups 
 
-![321Backups](/images/321graphic.png)
+![321Backups](/images/master_strategy.png)
+
+![MajorCloud](/images/minorclouds.png)
 
 * 3 extant copies of all critical data
 * 2 backup copies
