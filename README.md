@@ -24,7 +24,7 @@ I summarized my approach for backing up my local (Linux) desktop [on LinuxHint.c
 
 The components are as follows:
 
-## 1. Timesfhit backup
+## 1. Timeshift backup
 
 ![Timeshift](/images/timeshift.png)
 
@@ -59,6 +59,8 @@ I run Clonezilla as often as I remember. Approximately once every 3 months. I ha
 <hr>
 
 # 2: Cloud Backups: Major 
+
+![MajorCloud](/images/majorclouds.png)
 
 I divide my cloud backup approach into two parts:
 
