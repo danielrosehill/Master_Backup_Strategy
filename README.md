@@ -9,7 +9,7 @@ This "master" backup strategy summarizes the overall backup strategy that I curr
 
 ![321Backups](/images/master_strategy.png)
 
-![MajorCloud](/images/minorclouds.png)
+<hr>
 
 * 3 extant copies of all critical data
 * 2 backup copies
