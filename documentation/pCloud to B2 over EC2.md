@@ -30,23 +30,23 @@ And I gave the link a name:
 
 If you loose track of it, you can find all generated download links under ‘Shares’:
 
-![](/Documentation/images/23.png)
+![](/documentation/images/23.png)
 
 Copying the link into a browser, I clicked on ‘Download’ and opted for ‘Download as ZIP’:
 
-![](/Documentation/images/24.png)
+![](/documentation/images/24.png)
 
 The download began:
 
-![](/Documentation/images/25.png)
+![](/documentation/images/25.png)
 
 I went into my download manager and copied the unique download URL. Note: if you just attempt to download the archive directly without sharing the URL will not be unique — and it will not download your file!
 
-![](/Documentation/images/26.png)
+![](/documentation/images/26.png)
 
 The URL is formatted like this:
 
-![](/Documentation/images/27.png)
+![](/documentation/images/27.png)
 
 The ‘code’ component contains a unique download string.
 
@@ -56,7 +56,7 @@ I started up my EC2 instance and simply ran a ‘wget’ command to download the
 wget https://api.pcloud.com/getpubzip?code=24242424
 ```
 
-![](/Documentation/images/28.png)
+![](/documentation/images/28.png)
 
 The download didn’t have a file format, so I renamed it backup080520.zip.
 
