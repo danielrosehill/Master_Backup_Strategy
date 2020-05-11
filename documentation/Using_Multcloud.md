@@ -1,6 +1,6 @@
 # Using Multcloud to run cloud to cloud syncs
 
-![](/documentation/images/mc1.png)
+![](/images/mc1.png)
 
 I’ve written a little bit [about the importance of taking (3–2–1 compliant!) backups](https://linuxhint.com/ubuntu_backups_321/) — whether you’re using to back up your home computer or your web hosting.
 
@@ -18,7 +18,7 @@ MultCloud.com is one of my favorite tools for this purpose.
 
 Multcloud’s advantage for backup and data transfer purposes is that it can sync quite a wide variety of clouds — and use different sync methodologies to keep them running as you wish.
 
-![](/documentation/images/mc2.png)
+![](/images/mc2.png)
 
 The platform supports common “consumer grade” cloud storage tools such as:
 
@@ -43,7 +43,7 @@ And:
 
 ## Connecting and Syncing Clouds
 
-![](/documentation/images/mc3.png)
+![](/images/mc3.png)
 
 Multcloud can be used to run automatic scheduled syncs between, say, Google Drive and pCloud.
 
@@ -56,7 +56,7 @@ The syncing options include:
 
 The most important feature — for many users — is the scheduling tool. This allows the sync to run automatically on schedule.
 
-![](/documentation/images/mc4.png)
+![](/images/mc4.png)
 
 The sync can be configured to run:
 
@@ -68,21 +68,21 @@ The sync can be configured to run:
 
 Multcloud can be used to automatically sync a cloud storage volume, like pCloud, with a backup bucket in S3.
 
-![](/documentation/images/mc5.png)
+![](/images/mc5.png)
 
 After connecting the clouds, users simply choose the source and destination.
 
 Set the job to run weekly:
 
-![](/documentation/images/mc6.png)
+![](/images/mc6.png)
 
 Select “Add Task and Transfer Now” to initiate the transfer and retain the scheduled job:
 
-![](/documentation/images/mc7.png)
+![](/images/mc7.png)
 
 By clicking on the job icon in the top right hand corner of the screen users can observe the job as it is running. When it is complete, the user receives a confirmation email:
 
-![](/documentation/images/mc7.png)
+![](/images/mc7.png)
 
 
 
