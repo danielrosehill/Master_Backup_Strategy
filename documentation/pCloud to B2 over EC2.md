@@ -20,13 +20,13 @@ Here’s what did the trick.
 Firstly, I used the web UI to bundle my pCloud files into an archive for downloading.
 To do this, I selected all the folders at the root level.
 
-![](/Documentation/images/21.png)
+![](/documentation/images/21.png)
 
 Then, I clicked on ‘Share Download Link.
 
 And I gave the link a name:
 
-![](/Documentation/images/22.png)
+![](/documentation/images/22.png)
 
 If you loose track of it, you can find all generated download links under ‘Shares’:
 
