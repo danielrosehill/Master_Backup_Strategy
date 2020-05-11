@@ -3,6 +3,8 @@ By: Daniel Rosehill (github@danielrosehill.co.il)
 
 *Version control:* V1.2 (Updated: 01/05/20)
 
+V1.3 documentation can be viewed and downloaded [here](/documentation/V13.pdf)
+
 This "master" backup strategy summarizes the overall backup strategy that I currently use to back up my local and cloud data in compliance with the 3-2-1 backup approach:
 
 ## Objective: 3-2-1 Compliant Backups 
