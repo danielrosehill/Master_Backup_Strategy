@@ -61,9 +61,20 @@ Table (fix formatting!)<br/>
 
 <hr>
 
+### Quarterly activities
+**Cpanels to B2 (and local)
+
+<hr>
+
 ### Annual activities
 
 **Google Takeouts to B2:** Annualy, via EC2 + rclone (manual)
+
+<hr>
+
+## Misc
+
+Annual pull of all cloud object storage to local server
 
 
 
