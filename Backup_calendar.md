@@ -9,8 +9,8 @@ The following recurrent task table can help to plan the seamless operation of ba
 
 | Backup  | Recurrence | Documentation |
 | ------------- | ------------- |  | ------------- |
-| Local Timeshift incremental backups  | Daily, weekly monthly  | [Repository home](https://github.com/danielrosehilljlm/Master_Backup_Strategy)  |
-| Clonezilla main disk to local disk  | Every three months  |  [Repository home](https://github.com/danielrosehilljlm/Master_Backup_Strategy)  |
+| Local Timeshift incremental backups  | Daily, weekly monthly  | Repository home  |
+| Clonezilla main disk to local disk  | Every three months  |  [Repository home  |
 
 <hr>
 
@@ -30,4 +30,5 @@ The following recurrent task table can help to plan the seamless operation of ba
 | Google Takeouts to B2  | Annually  | [Repository home](https://github.com/danielrosehilljlm/Master_Backup_Strategy/blob/master/documentation/Gsuite_Takeouts%20to%20B2.md)  |
 | Google Drive weekly snapshots to Multcloud | Weekly | |
 | pCloud snapshots to B2 | Quarterly | |
+| Misc cloud services | Quarterly | |
 
