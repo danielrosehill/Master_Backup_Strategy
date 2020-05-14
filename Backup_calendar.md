@@ -50,13 +50,13 @@ Table (fix formatting!)<br/>
 
 
 ### Weekly activities
-**Google Drive copies to S3:** Weekly, via Multcloud(automated)
+**Google Drive copies to S3:** Weekly, via Multcloud(automated)<br/>
 **pCloud copies to S3:** Weekly, via Multcloud (automated)
 
 <hr>
 
 ### Quarterly activities
-**pCloud archive snapshots to B2** Quarterly, retain 3 (manual)
+**pCloud archive snapshots to B2** Quarterly, retain 3 (manual)<br/>
 **Misc cloud services to B2:** Quarterly (manual)
 
 <hr>
