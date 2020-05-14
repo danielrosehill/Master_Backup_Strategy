@@ -8,7 +8,7 @@ The following recurrent task table can help to plan the seamless operation of ba
 ### Onsite
 
 | Backup  | Recurrence | Documentation |
-| ------------- | ------------- |  | ------------- |
+| ---| --- |  | --- |
 | Local Timeshift incremental backups  | Daily, weekly monthly  | Repository home  |
 | Clonezilla main disk to local disk  | Every three months  |  [Repository home](https://github.com/danielrosehilljlm/Master_Backup_Strategy)  |
 
