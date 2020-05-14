@@ -18,7 +18,7 @@ The following recurrent task table can help to plan the seamless operation of ba
 
 **Clonezilla live USB (main disk to backup local SSD)**: Quarterly
 
-Table (fix formatting!)
+Table (fix formatting!)<br/>
 | Backup  | Recurrence | Documentation |
 | ---| --- |  | --- |
 | Local Timeshift incremental backups  | Daily, weekly monthly  | Repository home  |
@@ -29,12 +29,12 @@ Table (fix formatting!)
 
 ### Offsite local backups (1-2)
 
-**Cloudberry incremental full disk backup to B2:** Monthly
+**Cloudberry incremental full disk backup to B2:** Monthly <br/>
 **Cloudberry or rclone Clonezilla image sync to B2:** Annually
 
 
 
-Table (fix formatting!)
+Table (fix formatting!)<br/>
 | Backup  | Recurrence | Documentation |
 | ------------- | ------------- |  | ------------- |
 | CloudBerry: incremental full disk backups to B2  | Monthly | [Repository home](https://github.com/danielrosehilljlm/Master_Backup_Strategy)  |
@@ -67,7 +67,7 @@ Table (fix formatting!)
 
 
 
-Table (fix formatting!)
+Table (fix formatting!)<br/>
 
 | Backup  | Recurrence | Documentation |
 | ------------- | ------------- |  | ------------- |
