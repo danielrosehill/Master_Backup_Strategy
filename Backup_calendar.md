@@ -5,6 +5,8 @@ The following recurrent task table can help to plan the seamless operation of ba
 
 ## Local backups (local file system -> *)
 
+<hr>
+
 ### Onsite local backups (1-1)
 
 #### Daily activities
@@ -14,9 +16,9 @@ The following recurrent task table can help to plan the seamless operation of ba
 #### Quarterly activities
 
 
-** Clonezilla live USB (main disk to backup local SSD)**: Quarterly
+**Clonezilla live USB (main disk to backup local SSD)**: Quarterly
 
-
+Table (fix formatting!)
 | Backup  | Recurrence | Documentation |
 | ---| --- |  | --- |
 | Local Timeshift incremental backups  | Daily, weekly monthly  | Repository home  |
@@ -30,10 +32,16 @@ The following recurrent task table can help to plan the seamless operation of ba
 **Cloudberry incremental full disk backup to B2:** Monthly
 **Cloudberry or rclone Clonezilla image sync to B2:** Annually
 
+
+
+Table (fix formatting!)
 | Backup  | Recurrence | Documentation |
 | ------------- | ------------- |  | ------------- |
 | CloudBerry: incremental full disk backups to B2  | Monthly | [Repository home](https://github.com/danielrosehilljlm/Master_Backup_Strategy)  |
 | CloudBerry: Clonezilla images to B2  | Annually  | [Repository home](https://github.com/danielrosehilljlm/Master_Backup_Strategy)  |
+
+
+<hr>
 
 
 ## Cloud backups (cloud file systems -> *)
@@ -45,9 +53,13 @@ The following recurrent task table can help to plan the seamless operation of ba
 **Google Drive copies to S3:** Weekly, via Multcloud(automated)
 **pCloud copies to S3:** Weekly, via Multcloud (automated)
 
+<hr>
+
 ### Quarterly activities
 **pCloud archive snapshots to B2** Quarterly, retain 3 (manual)
 **Misc cloud services to B2:** Quarterly (manual)
+
+<hr>
 
 ### Annual activities
 
@@ -55,7 +67,7 @@ The following recurrent task table can help to plan the seamless operation of ba
 
 
 
-
+Table (fix formatting!)
 
 | Backup  | Recurrence | Documentation |
 | ------------- | ------------- |  | ------------- |
