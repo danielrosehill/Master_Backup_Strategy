@@ -75,7 +75,7 @@ I run Clonezilla as often as I remember. Approximately once every 3 months. Wort
 
 I use [Cloudberry](https://www.msp360.com/backup/linux/ubuntu.aspx) to create the offsite backups of my Linux machine. I create a job that runs as an incremental backup to a [B2 storage bucket](https://www.backblaze.com/b2/cloud-storage.html).
 
-![/images/cloudberry.png]
+![](/images/cloudberry.png)
 
 To keep the offsite backup of my local system reasonably well updated I run this job automatically once a week.
 
