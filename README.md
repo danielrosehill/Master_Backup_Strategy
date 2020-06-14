@@ -19,17 +19,17 @@ This "master" backup strategy summarizes the overall backup strategy that I curr
 
 <hr>
 
-**The standard:
+**The standard:**
 
 * 3 extant copies of all critical data (primary plus two backups)
 * 2 backup copies (on different storage media)
 * 1 copy stored off-site
 
-**What's achieved here:
+**What's achieved here:**
 
-* This backup strategy achieves 3-2-1 with one additional onsite backup.
-* This backup strategy provides redundancy onsite by creating an additional onsite backup taken via a different strategy (Timeshift vs. Clonezilla; incremental vs. full image).
-* One could improve upon this backup strategy further by adding an additional SDD and syncing via RAID 1. However, this would add redundancy (vs. another unnecessary backup). The benefit would be improved operational continuity in the event of disk failure. Furthremore, restoring from a backup might be desirable for other reasons (distro update / package that broke dependencies, etc). Therefore it is suggested that an additional RAID disk be *added* to the onsite methods rather than substituted as a replacement for one.
+* This backup strategy achieves 3-2-1 with **one additional onsite backup**.
+* This backup strategy creates an additional onsite backup taken via a different strategy to further diversify the methodologies employed (Timeshift vs. Clonezilla; incremental vs. full image).
+* One could improve upon this backup strategy further by adding an additional SDD and syncing via RAID 1. However, this would add **redundancy** (vs. another unnecessary backup). (And remember: redundancy ≠ backups).
 
 <hr>
 
@@ -81,6 +81,10 @@ To keep the offsite backup of my local system reasonably well updated I run this
 
 
 ## The Deluxe Option. SSD 4 in RAID 1 Configuration (or alternatives)
+
+The benefit to adding the RAID drive (or the alternatives suggested below) would be improved operational continuity in the event of disk failure. Otherwise, in the event of drive failure, a delay would be necessitated while one provisions a new storage medium and executes the restore process. (And worth noting: restoring from Timeshift would be a lengthier process, requiring the prior installation of the OS; restoring from Clonezilla would be quicker, but the restore point would be more historic, thereby risking data loss).
+
+Furthermore, restoring from a backup might be desirable for other reasons (distro update / package that broke dependencies, etc). Therefore it is suggested that an additional RAID disk be *added* to the onsite methods rather than substituted as a replacement for one.
 
 **Disk Failure Protection**
 
