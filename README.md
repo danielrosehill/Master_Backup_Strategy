@@ -1,7 +1,7 @@
-# Master Backup Strategy (V1.2)
+# Master Backup Strategy (V1.3)
 By: Daniel Rosehill (github@danielrosehill.co.il)
 
-*Version control:* V1.2 (Updated: 01/05/20)
+*Version control:* V1.3 (Documentation updated 06/20)
 
 V1.3 documentation can be viewed and downloaded [here](/documentation/PDF/V13.pdf)
 
@@ -9,16 +9,27 @@ This "master" backup strategy summarizes the overall backup strategy that I curr
 
 [YouTube (V1.3):](https://www.youtube.com/watch?v=XmJ935hPn64&t=1971s) 
 
-## Objective: 3-2-1 Compliant Backups 
+[Here's a much more simple guide to achieveing 3-2-1 compliant backups](https://www.jwz.org/doc/backups.html). The advantage to using this method is that we don't have to keep a disk connected via an enclosure nor do we have to create a cron job as easy as that is. Additionally, we get one more onsite backup.
 
 ![321Backups](/images/master_strategy.png)
 
 <hr>
 
-* 3 extant copies of all critical data
-* 2 backup copies
--> Copies on different storage media
+## Objective: 3-2-1 Compliant Backups 
+
+<hr>
+
+**The standard:
+
+* 3 extant copies of all critical data (primary plus two backups)
+* 2 backup copies (on different storage media)
 * 1 copy stored off-site
+
+**What's achieved here:
+
+* This backup strategy achieves 3-2-1 with one additional onsite backup.
+* This backup strategy provides redundancy onsite by creating an additional onsite backup taken via a different strategy (Timeshift vs. Clonezilla; incremental vs. full image).
+* One could improve upon this backup strategy further by adding an additional SDD and syncing via RAID 1. However, this would add redundancy (vs. another unnecessary backup). The benefit would be improved operational continuity in the event of disk failure. Furthremore, restoring from a backup might be desirable for other reasons (distro update / package that broke dependencies, etc). Therefore it is suggested that an additional RAID disk be *added* to the onsite methods rather than substituted as a replacement for one.
 
 <hr>
 
@@ -30,7 +41,7 @@ I summarized my approach for backing up my local (Linux) desktop [on LinuxHint.c
 
 The components are as follows:
 
-## 1. Timeshift backup
+## Local Onsite Backup 1. Via [Timeshift](https://github.com/teejee2008/timeshift) to SSD 2 (automatically, daily)
 
 ![Timeshift](/images/timeshift.png)
 
@@ -38,29 +49,54 @@ I take the following restore points:
 
 * Daily (x1)
 * Weekly (x1)
-* Monthly
+* Monthly (x1)
 
 These restore points are saved onto a *dedicated* 480 GB SSD within my desktop. [Timeshift](https://github.com/teejee2008/timeshift) has time and again proven indispensible in rolling the system back to a point in time before changes — typically updates — rendered it unstable or prove some key system like package management. 
 
 Timeshift can be used to restore the system over a CLI.
 
-## 2. Clonezilla
+## Local Onsite Backup 1. Via Clonezilla to SSD 3 (manually, weekly/monthly)
 
 ![Clonezilla](/images/clonezilla.png)
 
-Because Timeshift requires that GRUB be intact, it cannot be relied upon to restore a completely bricked Linux system.
+**Because Timeshift requires that, at a minimum, GRUB be intact (it is available as a CLI from a Bash environment) it cannot be relied upon to restore a completely bricked Linux system.**
+
+This is the tradeoff between Timeshift (more convenient) and Clonezilla (more reliable) and why this backup approach uses both.
 
 Therefore I also use [Clonezilla](https://www.clonezilla.org) to take disk <-> disk images.
 
-I use another dedicated SSD for this purpose — although there is no reason one couldn't use a very generously sized HDD and create separate partitions for the Clonezilla and Timeshift backups (although this creates more redundancy on storage media). 
+I use another dedicated SSD for this purpose — although there is no reason one couldn't use a very generously sized HDD and create separate partitions for the Clonezilla and Timeshift backups. Using separate storage media for the two backup drives, however, obviously provides a little more protection against disk failure.
 
-I run Clonezilla as often as I remember. Approximately once every 3 months. I have yet to have to rely upon this for restore.
+I run Clonezilla as often as I remember. Approximately once every 3 months. Worth noting: I have yet to have to rely upon this for restore; rather Timeshift has been enough to roll back to a restore point in the event of any system intsability.
+
+
+## Local Offsite Backup 1. Via Cloudberry
+
+
+I use [Cloudberry](https://www.msp360.com/backup/linux/ubuntu.aspx) to create the offsite backups of my Linux machine. I create a job that runs as an incremental backup to a [B2 storage bucket](https://www.backblaze.com/b2/cloud-storage.html).
+
+![/images/cloudberry.png]
+
+To keep the offsite backup of my local system reasonably well updated I run this job automatically once a week.
+
+
+## The Deluxe Option. SSD 4 in RAID 1 Configuration (or alternatives)
+
+**Disk Failure Protection**
+
+Here are a few ways to protect against disk failure related interruptions to "computing continuity"
+
+* Add more more SDD to this setup and configure in RAID 1 with the main drive. This would be the most elegant approach.
+* Have a very barebones Ubuntu installation written to a SDD. Keep this in your file cabinet and have this ready to stick into the computer if your disk fails (so that you can go about buying a new disk and completing the restore process at a time that is convenient to you).
+* Have another SSD ready to roll in your cabinet and keep it in its product packaging. Restoring from a Clonezilla image doesn't take that long
+
 
 ## Notes:
 
 - Because full system backups capture all virtual machines (VMs) nested within the home directory (if you're using VMWare Workstation player at /home/$user/vmware) there is no need to create separate backups for VMs — although for convenience's sake (to be able to restore a VM without having to restore the overlying system), I take periodic backups of my Windows VM too.
 - Because Clonezilla backup images of a whole disk are heavy, I have only ever uploaded backed up to S3 once. In the event of a disk failure and replacement, restoring from local media would make much more sense. 
 - This is obviosly desktop-centric. A concerned traveller could bring an external SSD with him/her while travelling with a Clonezilla image of the SSD in order to replace it. 
+
 
 <hr>
 
@@ -119,6 +155,8 @@ Every 3 to 6 months I will manually run through this checklist and upload the ba
 # 4: Pull S3 --> Local (Manual, Every 6 Months)
 
 In order to keep a second copy of the cloud media that is onsite (S3 is clearly another cloud) about once every six months I then pull down my S3 buckets and copy them locally.
+
+I am currenntly doing this onto an external encrypted SSD. I am about to transition over to keeping these backups on a Synology NAS.
 
 Specifically I want to download:
 
