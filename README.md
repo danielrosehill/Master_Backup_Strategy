@@ -5,19 +5,17 @@ By: Daniel Rosehill (github@danielrosehill.co.il)
 
 V1.3 documentation can be viewed and downloaded [here](/documentation/PDF/V13.pdf)
 
-This "master" backup strategy summarizes the overall backup strategy that I currently use to back up my local and cloud data in compliance with the 3-2-1 backup approach:
+* This "master" backup strategy summarizes the overall backup strategy that I currently use to back up my local and cloud data in compliance with the 3-2-1 backup approach:
 
-[YouTube (V1.3):](https://www.youtube.com/watch?v=XmJ935hPn64&t=1971s) 
+* [YouTube explanation (V1.3):](https://www.youtube.com/watch?v=XmJ935hPn64&t=1971s) 
 
-[Here's a much more simple guide to achieveing 3-2-1 compliant backups](https://www.jwz.org/doc/backups.html). The advantage to using this method is that we don't have to keep a disk connected via an enclosure nor do we have to create a cron job as easy as that is. Additionally, we get one more onsite backup.
+* [Finally, here's a much more simple guide to achieveing 3-2-1 compliant backups](https://www.jwz.org/doc/backups.html). (The advantage to using the method outlined here, however, is that we don't have to keep a disk connected via an enclosure nor do we have to create a cron job as easy as that is. Additionally, we get one more onsite backup.)
 
 ![321Backups](/images/master_strategy.png)
 
-<hr>
 
 ## Objective: 3-2-1 Compliant Backups 
 
-<hr>
 
 **The standard:**
 
@@ -27,7 +25,7 @@ This "master" backup strategy summarizes the overall backup strategy that I curr
 
 **What's achieved here:**
 
-* This backup strategy achieves 3-2-1 with **one additional onsite backup**.
+* This backup strategy achieves 3-2-1 with **one additional onsite backup**. You could think of it as **4** (data source plus three backups) - **3** (backups spread over three different storage media)- **1** (one offsite backup).
 * This backup strategy creates an additional onsite backup taken via a different strategy to further diversify the methodologies employed (Timeshift vs. Clonezilla; incremental vs. full image).
 * One could improve upon this backup strategy further by adding an additional SDD and syncing via RAID 1. However, this would add **redundancy** (vs. another unnecessary backup). (And remember: redundancy ≠ backups).
 
@@ -94,6 +92,14 @@ Here are a few ways to protect against disk failure related interruptions to "co
 * Have a very barebones Ubuntu installation written to a SDD. Keep this in your file cabinet and have this ready to stick into the computer if your disk fails (so that you can go about buying a new disk and completing the restore process at a time that is convenient to you).
 * Have another SSD ready to roll in your cabinet and keep it in its product packaging. Restoring from a Clonezilla image doesn't take that long
 
+
+## Summary:
+
+| Run Type | Backup Type | Metodology | Frequency | Source | Destination  |
+| ---------| ----------- |----------- |---------- |--------| ------------ |
+| Automatic | Incremental | [Timeshift](https://github.com/teejee2008/timeshift) | Daily | Primary | Drive 2 (primary x 2) |
+| Manual | Full | [Clonezilla](https://www.clonezilla.org) | Monthly | Primary | Drive 3 (primary x 0.5-1) |
+| Automatic | Incremental | Cloudberry | Weekly | Primary | Cloud storage |
 
 ## Notes:
 
