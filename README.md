@@ -7,6 +7,8 @@ V1.3 documentation can be viewed and downloaded [here](/documentation/PDF/V13.pd
 
 This "master" backup strategy summarizes the overall backup strategy that I currently use to back up my local and cloud data in compliance with the 3-2-1 backup approach:
 
+[YouTube (V1.3):](https://www.youtube.com/watch?v=XmJ935hPn64&t=1971s) 
+
 ## Objective: 3-2-1 Compliant Backups 
 
 ![321Backups](/images/master_strategy.png)
