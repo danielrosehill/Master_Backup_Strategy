@@ -95,6 +95,8 @@ Here are a few ways to protect against disk failure related interruptions to "co
 
 ## Summary:
 
+### Summary of local backups
+
 | Run Type | Backup Type | Metodology | Frequency | Source | Destination  |
 | ---------| ----------- |----------- |---------- |--------| ------------ |
 | Automatic | Incremental | [Timeshift](https://github.com/teejee2008/timeshift) | Daily | Primary | Drive 2 (primary x 2) |
