@@ -67,6 +67,20 @@ I use another dedicated SSD for this purpose — although there is no reason one
 
 I run Clonezilla as often as I remember. Approximately once every 3 months. Worth noting: I have yet to have to rely upon this for restore; rather Timeshift has been enough to roll back to a restore point in the event of any system intsability.
 
+### Getting Clonezilla disk clones onto an NAS
+
+I am currently working on a way to get these clones onto an NAS. Obviously, it makes the most sense to just do this directly over the LAN via SSH. As my initial attempt at that failed, I have instead simply copied the image.
+
+The syntax here is:
+
+`sudo rsync -avz ClonezillaImageFolder mynasuser@100.888.88.888::SharedFolder/MyBackup`
+
+Note the syntax is:
+
+* Two colons after the NAS IP
+* Shared folder name
+* Path for saving
+
 
 ## Local Offsite Backup 1. Via Cloudberry
 
@@ -144,6 +158,27 @@ Because the likelihood of any major cloud provider losing one's data is infintes
 Every 3 months I manually backup and upload to S3 the websites that I manage.
 
 There's not much more to do than running a full account backup and then uploading and overwriting those files to S3. I haven't managed to get cloud-to-cloud running for these. 
+
+* Full backups can be taken by initiating a full cPanel backup and then downloading the image to the local computer. Currently, I put this on a Synology NAS share which allows me to automatically replicate it to B2 thanks to its Cloud Sync feature.
+
+* Incremental backups can be taken over rsync by SSH-ing directly into the hosting environment.
+
+These are in the format
+
+`rsync -arvz -e 'ssh -p 333333' myuser@serverIP:/home/myhome/ /mybackuppointonlocalornas`
+
+Where:
+
+'33333' = A non-standard SSH port for connecting (if required; other hosts allow SSH access over port 22)
+
+One can create a few snapshots just by using rsync as follows:
+
+* Sync an initial job to /mybackuplocationonnas. You could call this `../daily` for instance.
+
+* Run weekly `rsync` jobs between daily and another folder called `../weekly`. Initially, this will run a full sync. Thereafter, the only delta captured will be between the daily jobs. This will create a weekly restore point.
+
+* The process can be repeated with monthlies. And any of these can be compressed to produce a full backup.
+
 
 ## GSuite (Every 3 months, Manual)
 
