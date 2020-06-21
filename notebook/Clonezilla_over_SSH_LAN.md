@@ -2,7 +2,7 @@
 
 In order to create a disk image from a host over LAN to a Synology NAS:
 
-!([](/images/lan_clonezilla1.png)
+![](/images/lan_clonezilla1.png)
 
 * 1/ Select SSH server as the Clonezilla image directory.
 
