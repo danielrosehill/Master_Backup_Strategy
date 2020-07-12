@@ -106,6 +106,16 @@ Here are a few ways to protect against disk failure related interruptions to "co
 * Have a very barebones Ubuntu installation written to a SDD. Keep this in your file cabinet and have this ready to stick into the computer if your disk fails (so that you can go about buying a new disk and completing the restore process at a time that is convenient to you).
 * Have another SSD ready to roll in your cabinet and keep it in its product packaging. Restoring from a Clonezilla image doesn't take that long
 
+## Hot spare
+
+I also maintain a hot spare 500 GB HDD running Ubuntu 19.04. I clone this from my primary (using Clonezilla) about once per year. This ensures that it is reasonably well updated and ready to run in the event it is required.
+
+The disaster recovery runbook for primary disk failure roughtly entails:
+
+* Installing hot spare into computer in order to immediatley resume operation
+* Purchase replacement storage medium
+* Attempt restore by reinstalling Ubuntu plus Timeshift and restoring from last restore point. Alternatively, restoring from the last good Clonezilla image.
+
 
 ## Summary:
 
